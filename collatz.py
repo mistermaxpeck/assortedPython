@@ -1,3 +1,5 @@
+# My solution to the Collatz Sequence problem from Automate the Boring Stuff by Al Sweigart
+
 import os, sys
 
 def collatz(number):
@@ -10,7 +12,15 @@ def collatz(number):
             return collatz(3 * number + 1)
     print('End of program')
 
-print('Pick a positive number')
-initialNumber = abs(int(input()))
+def userChoice():
+    print('Pick a number.')
+    try:
+        initialNumber = abs(int(input()))
+        if initialNumber == 0:
+            sys.exit('Zero doesn\'t exist.')
+    except:
+        sys.exit('Pick a number, dummy')
 
-collatz(initialNumber)
+    collatz(initialNumber)
+
+userChoice()
